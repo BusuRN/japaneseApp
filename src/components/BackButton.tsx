@@ -6,7 +6,6 @@ import {useNavigation} from '@react-navigation/native';
 
 const BackButton = () => {
   const navigation = useNavigation();
-  console.log(navigation);
   return (
     <Pressable
       onPress={() => {
@@ -27,7 +26,6 @@ export default BackButton;
 
 const styles = StyleSheet.create({
   container: {
-    // borderWidth: 1,
     marginLeft: -16,
   },
 });
