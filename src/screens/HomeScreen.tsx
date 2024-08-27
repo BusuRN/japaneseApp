@@ -1,10 +1,17 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-
-const HomeScreen = () => {
+import Logo from './../components/Logo';
+const HomeScreen = ({navigation}) => {
   return (
     <View>
       <Text>This is my HomeScreen</Text>
+      <Pressable
+        onPress={() => {
+          navigation.navigate('Details');
+        }}>
+        <Text>Click me</Text>
+      </Pressable>
+      <Logo />
     </View>
   );
 };
