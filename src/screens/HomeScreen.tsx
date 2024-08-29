@@ -4,6 +4,7 @@ import Logo from './../components/Logo';
 import Title from '../components/Title';
 import {ACCENT} from '../consts/COLORS';
 import CellHeader from '../components/CellHeader';
+import CharacterCard from '../components/CharacterCard';
 const HomeScreen = ({navigation}) => {
   return (
     <View>
@@ -25,6 +26,12 @@ const HomeScreen = ({navigation}) => {
       <CellHeader letter={'u'} active={true} />
       <CellHeader letter={'e'} active={true} isColumn={true} />
       <CellHeader letter={'o'} />
+      <CharacterCard letter={'あ'} active={true} eng={'a'} />
+      <CharacterCard letter={'い'} eng={'i'} />
+      <CharacterCard letter={'う'} eng={'u'} active={true} />
+      <CharacterCard letter={'え'} eng={'e'} />
+      <CharacterCard letter={'お'} eng={'o'} />
+      <CharacterCard letter={'ま'} active={true} eng={'ma'} />
     </View>
   );
 };
