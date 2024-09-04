@@ -1,8 +1,13 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {FC} from 'react';
 import {ACCENT, PRIMARY, WHITE} from '../consts/COLORS';
 
-const CharacterCard = ({letter, active, eng}) => {
+interface Props {
+  letter: string;
+  active?: boolean;
+  eng: string;
+}
+const CharacterCard: FC<Props> = ({letter, active, eng}) => {
   return (
     <View style={[styles.container, active === true && styles.activeContainer]}>
       <Text style={[styles.text, active === true && styles.activeText]}>

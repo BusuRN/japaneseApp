@@ -1,12 +1,13 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from '../screens/HomeScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 import {ACCENT, WHITE} from '../consts/COLORS';
 import Logo from '../components/Logo';
 import BackButton from '../components/BackButton';
+import BottomNavigator from './BottomNavigator';
+import WorkoutScreen from '../screens/WorkoutScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,8 +29,8 @@ const AppNavigator = () => {
           },
         }}>
         <Stack.Screen
-          name="Home"
-          component={HomeScreen}
+          name="BottomNavigator"
+          component={BottomNavigator}
           options={{
             headerLeft: () => {
               return <View />;
@@ -37,6 +38,13 @@ const AppNavigator = () => {
           }}
         />
         <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="Workout"
+          component={WorkoutScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
