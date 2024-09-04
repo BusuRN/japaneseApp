@@ -7,7 +7,7 @@ import CellHeader from '../components/CellHeader';
 import CharacterCard from '../components/CharacterCard';
 const HomeScreen = ({navigation}) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>This is my HomeScreen</Text>
       <Pressable
         onPress={() => {
@@ -39,6 +39,10 @@ const HomeScreen = ({navigation}) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+
   customTitle: {
     fontSize: 25,
     color: ACCENT,
