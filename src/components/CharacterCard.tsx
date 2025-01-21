@@ -3,13 +3,18 @@ import React, {FC} from 'react';
 import {ACCENT, PRIMARY, WHITE} from '../consts/COLORS';
 
 interface Props {
-  letter: string;
+  letter: string | null;
   active?: boolean;
-  eng: string;
+  eng?: string | null;
 }
 const CharacterCard: FC<Props> = ({letter, active, eng}) => {
   return (
-    <View style={[styles.container, active === true && styles.activeContainer]}>
+    <View
+      style={[
+        styles.container,
+        active === true && styles.activeContainer,
+        !letter && styles.invisible,
+      ]}>
       <Text style={[styles.text, active === true && styles.activeText]}>
         {letter}
       </Text>
@@ -23,8 +28,11 @@ export default CharacterCard;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: PRIMARY,
-    width: 54,
-    height: 54,
+    flex: 1,
+    aspectRatio: 1,
+    marginHorizontal: 5,
+    // width: 58,
+    // height: 54,
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
@@ -42,5 +50,8 @@ const styles = StyleSheet.create({
   },
   activeText: {
     fontSize: 25,
+  },
+  invisible: {
+    opacity: 0,
   },
 });
