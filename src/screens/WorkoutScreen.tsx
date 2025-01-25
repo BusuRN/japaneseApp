@@ -2,7 +2,7 @@ import React from 'react';
 import {Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 import LittleBit from '../components/LittleBit';
 import SVGLogo from '../components/SVGLogo';
-import {PRIMARY, PRIMARY_DARK, WHITE} from '../consts/COLORS';
+import {WHITE} from '../consts/COLORS';
 import Box from '../components/Box';
 import RNVectorIcon from '../components/RNVectorIcon';
 
