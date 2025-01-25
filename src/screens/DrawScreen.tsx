@@ -2,7 +2,7 @@ import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React, {useState, useRef} from 'react';
 import Slider from '@react-native-community/slider';
 import {SketchCanvas} from '@terrylinla/react-native-sketch-canvas';
-import {PRIMARY, PRIMARY_50, PRIMARY_DARK} from '../consts/COLORS';
+import {PRIMARY, PRIMARY_50, PRIMARY_DARK, WHITE} from '../consts/COLORS';
 import RNVectorIcon from '../components/RNVectorIcon';
 
 const colors = [
@@ -102,12 +102,24 @@ const DrawScreen = () => {
             return (
               <Pressable
                 key={item}
-                style={[styles.colorButton, {backgroundColor: item}]}
+                style={[
+                  styles.colorButton,
+                  {backgroundColor: item},
+                  item === color && styles.selectedColor,
+                ]}
                 onPress={() => {
                   setColor(item);
                   setColorMenu(false);
-                }}
-              />
+                }}>
+                {item === color && (
+                  <RNVectorIcon
+                    name="check"
+                    family="AntDesign"
+                    size={18}
+                    color={WHITE}
+                  />
+                )}
+              </Pressable>
             );
           })}
         </View>
@@ -219,5 +231,9 @@ const styles = StyleSheet.create({
     height: 20,
     backgroundColor: PRIMARY_DARK,
     marginHorizontal: -4,
+  },
+  selectedColor: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
