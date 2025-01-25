@@ -6,3 +6,4 @@ export const DARK = '#322F2F';
 export const BLACK = '#000000';
 export const WHITE_50 = `${WHITE}80`;
 export const WHITE_20 = `${WHITE}20`;
+export const PRIMARY_50 = '#E0ECDE';

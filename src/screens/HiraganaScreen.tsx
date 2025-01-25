@@ -1,5 +1,5 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {ScrollView, StyleSheet} from 'react-native';
+import React, {useEffect, useRef} from 'react';
 import {
   HIRAGANA_MONOGRAPHS,
   HIRAGANA_N,
@@ -45,8 +45,19 @@ const hiraganaData: HiraganaData[] = [
 ];
 
 const HiraganaScreen = () => {
+  const andreiScroll = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (andreiScroll.current) {
+        andreiScroll.current.scrollToEnd();
+      }
+    }, 3000);
+  }, []);
+
   return (
     <ScrollView
+      ref={andreiScroll}
       style={styles.container}
       contentContainerStyle={styles.contentContainer}>
       {hiraganaData.map((item, index) => {

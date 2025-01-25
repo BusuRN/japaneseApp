@@ -4,7 +4,6 @@ import {
   View,
   FlatList,
   TextInput,
-  ScrollView,
   Pressable,
   Modal,
 } from 'react-native';
@@ -212,9 +211,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingLeft: 15,
     paddingRight: 15,
-    // marginTop: 15,
     marginHorizontal: 15,
-    // marginBottom: 5,
     flex: 1,
   },
   searchContainer: {
@@ -253,7 +250,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 50,
-    // alignItems: 'center',
   },
   modalView: {
     borderRadius: 20,
@@ -265,20 +261,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '500',
     marginBottom: 15,
-    // borderWidth: 1,
   },
   searchFilter: {
     fontSize: 16,
     fontWeight: '500',
-    // borderWidth: 1,
     flex: 1,
     marginHorizontal: 5,
   },
   filterContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    // flexWrap: 'wrap',
-    // justifyContent: 'space-between',
+    // marginTop: 20,
   },
   closeButton: {
     position: 'absolute',
@@ -291,7 +284,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     height: 30,
     justifyContent: 'center',
-    // marginVertical: 5,
     flex: 1,
     marginHorizontal: 5,
   },
