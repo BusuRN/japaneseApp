@@ -14,9 +14,7 @@ const CellHeader: FC<Props> = ({letter, active, isColumn}) => {
       style={[
         isColumn ? styles.columnContainer : styles.rowContainer,
 
-        // styles.container,
-        active === true && styles.activeContainer,
-        // isColumn === true && styles.columnContainer,
+        active && styles.activeContainer,
         !letter && styles.invisible,
       ]}>
       <Text style={styles.text}>{letter}</Text>
@@ -29,7 +27,6 @@ export default CellHeader;
 const styles = StyleSheet.create({
   rowContainer: {
     backgroundColor: PRIMARY_DARK,
-    // width: 55,
     flex: 1,
     marginHorizontal: 5,
     height: 24,

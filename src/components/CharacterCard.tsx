@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, Text} from 'react-native';
 import React, {FC} from 'react';
 import {ACCENT, PRIMARY, WHITE} from '../consts/COLORS';
 
@@ -6,12 +6,17 @@ interface Props {
   letter: string | null;
   active?: boolean;
   eng?: string | null;
+  onPress?: () => void;
+  iscolumn?: boolean;
+  row?: string | null;
 }
-const CharacterCard: FC<Props> = ({letter, active, eng}) => {
+const CharacterCard: FC<Props> = ({letter, active, eng, onPress, iscolumn}) => {
   return (
-    <View
+    <Pressable
+      onPress={onPress}
       style={[
         styles.container,
+        iscolumn === true && {backgroundColor: PRIMARY},
         active === true && styles.activeContainer,
         !letter && styles.invisible,
       ]}>
@@ -19,7 +24,7 @@ const CharacterCard: FC<Props> = ({letter, active, eng}) => {
         {letter}
       </Text>
       {active === true && <Text style={styles.engText}>{eng}</Text>}
-    </View>
+    </Pressable>
   );
 };
 
@@ -31,8 +36,6 @@ const styles = StyleSheet.create({
     flex: 1,
     aspectRatio: 1,
     marginHorizontal: 5,
-    // width: 58,
-    // height: 54,
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
