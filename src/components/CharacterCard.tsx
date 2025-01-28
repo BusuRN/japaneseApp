@@ -7,16 +7,14 @@ interface Props {
   active?: boolean;
   eng?: string | null;
   onPress?: () => void;
-  iscolumn?: boolean;
   row?: string | null;
 }
-const CharacterCard: FC<Props> = ({letter, active, eng, onPress, iscolumn}) => {
+const CharacterCard: FC<Props> = ({letter, active, eng, onPress}) => {
   return (
     <Pressable
       onPress={onPress}
       style={[
         styles.container,
-        iscolumn === true && {backgroundColor: PRIMARY},
         active === true && styles.activeContainer,
         !letter && styles.invisible,
       ]}>
