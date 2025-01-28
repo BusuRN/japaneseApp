@@ -1,5 +1,5 @@
 import {StyleSheet, View} from 'react-native';
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import Title from './Title';
 import CellHeader from './CellHeader';
 import CharacterCard from './CharacterCard';
@@ -12,40 +12,52 @@ interface Props {
 }
 
 const AlphabetSection: FC<Props> = ({title, headerLetters, alphabetData}) => {
+  const [activeCard, setActiveCard] = useState('');
+  const [activeColumn, setActiveColumn] = useState('');
+  const [activeRow, setActiveRow] = useState('');
+
   return (
     <View>
       <Title title={title} />
       <View style={styles.headerCells}>
-        {headerLetters.map((item, index) => {
-          return <CellHeader key={index} letter={item} />;
-        })}
+        {headerLetters.map((item, index) => (
+          <CellHeader key={index} letter={item} active={activeRow === item} />
+        ))}
       </View>
       <View>
-        {alphabetData.map((row, rowIndex) => {
-          return (
-            <View style={styles.rowContainer} key={rowIndex}>
-              {row.map((cellItem, cellIndex) => {
-                if (cellItem.isColumn === true) {
-                  return (
-                    <CellHeader
-                      key={cellIndex}
-                      letter={cellItem.letter}
-                      isColumn={true}
-                    />
-                  );
-                }
+        {alphabetData.map((row, rowIndex) => (
+          <View style={styles.rowContainer} key={rowIndex}>
+            {row.map((cellItem, cellIndex) => {
+              if (cellItem.isColumn) {
                 return (
-                  <CharacterCard
+                  <CellHeader
                     key={cellIndex}
                     letter={cellItem.letter}
-                    // active={true}
-                    eng={cellItem.eng}
+                    isColumn={true}
+                    active={activeColumn === cellItem.letter}
                   />
                 );
-              })}
-            </View>
-          );
-        })}
+              }
+              const horizontalIndex = row
+                .filter(item => !item.isColumn)
+                .indexOf(cellItem);
+
+              return (
+                <CharacterCard
+                  key={cellIndex}
+                  letter={cellItem.letter}
+                  eng={cellItem.eng}
+                  active={activeCard === cellItem.letter}
+                  onPress={() => {
+                    setActiveCard(cellItem.letter);
+                    setActiveColumn(row[0]?.letter);
+                    setActiveRow(headerLetters[horizontalIndex]);
+                  }}
+                />
+              );
+            })}
+          </View>
+        ))}
       </View>
     </View>
   );
