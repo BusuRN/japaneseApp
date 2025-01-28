@@ -38,9 +38,7 @@ const AlphabetSection: FC<Props> = ({title, headerLetters, alphabetData}) => {
                   />
                 );
               }
-              const horizontalIndex = row
-                .filter(item => !item.isColumn)
-                .indexOf(cellItem);
+              const horizontalIndex = cellIndex - 1;
 
               return (
                 <CharacterCard
