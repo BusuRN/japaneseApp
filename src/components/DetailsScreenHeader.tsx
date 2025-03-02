@@ -106,14 +106,14 @@ const DetailsScreenHeader: FC<Props> = ({
             color={'#FFFFFF00'}
           />
         </Pressable>
-        {/* <Pressable>
+        <Pressable>
           <RNVectorIcon
             name="play-circle-outline"
             family="MaterialCommunityIcons"
             size={40}
-            color={WHITE}
+            color={'#FFFFFF00'}
           />
-        </Pressable> */}
+        </Pressable>
       </View>
     </View>
   );

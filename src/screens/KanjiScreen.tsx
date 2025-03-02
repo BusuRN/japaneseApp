@@ -82,7 +82,9 @@ const KanjiScreen = ({navigation}) => {
         }
         ListEmptyComponent={
           <View>
-            <ErrorPhoto />
+            <Text style={styles.errorText}>
+              {'No kanji found using this search term.\nPlease try again!'}{' '}
+            </Text>
           </View>
         }
       />
@@ -339,5 +341,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: WHITE,
     fontWeight: '500',
+  },
+  errorText: {
+    fontSize: 20,
+    padding: 5,
   },
 });
