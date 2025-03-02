@@ -37,7 +37,13 @@ const AppNavigator = () => {
             },
           }}
         />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen
+          name="Details"
+          component={DetailsScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen
           options={{
             headerShown: false,

@@ -8,13 +8,21 @@ interface Props {
   eng?: string | null;
   onPress?: () => void;
   row?: string | null;
+  isSpecialCharacter?: boolean;
 }
-const CharacterCard: FC<Props> = ({letter, active, eng, onPress}) => {
+const CharacterCard: FC<Props> = ({
+  letter,
+  active,
+  eng,
+  onPress,
+  isSpecialCharacter,
+}) => {
   return (
     <Pressable
       onPress={onPress}
       style={[
         styles.container,
+        isSpecialCharacter && styles.specialCharacter,
         active === true && styles.activeContainer,
         !letter && styles.invisible,
       ]}>
@@ -54,5 +62,11 @@ const styles = StyleSheet.create({
   },
   invisible: {
     opacity: 0,
+  },
+  specialCharacter: {
+    aspectRatio: 2,
+    backgroundColor: PRIMARY,
+    borderRadius: 10,
+    paddingHorizontal: 15,
   },
 });

@@ -89,7 +89,7 @@ const BottomNavigator = () => {
           },
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Practice"
         component={PracticeScreen}
         options={{
@@ -105,7 +105,7 @@ const BottomNavigator = () => {
             );
           },
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };

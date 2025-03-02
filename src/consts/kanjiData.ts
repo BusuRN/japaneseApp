@@ -1,4 +1,6 @@
-export const kanjiData = [
+import {KanjiCharacter} from '../types/characterTypes';
+
+export const kanjiData: KanjiCharacter[] = [
   {
     id: '0',
     kData: '1',

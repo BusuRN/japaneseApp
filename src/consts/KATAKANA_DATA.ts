@@ -90,7 +90,7 @@ export const KATAKANA_MONOGRAPHS: Data = [
     },
     {
       letter: 'チ',
-      eng: 'ti',
+      eng: 'chi',
     },
     {
       letter: 'ツ',

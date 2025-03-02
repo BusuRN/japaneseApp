@@ -6,9 +6,9 @@ import {
   HIRAGANA_MONOGRAPHS_WITH_DIACRITICS,
   HIRAGANA_DIGRAPHS,
   HIRAGANA_DIGRAPHS_WITH_DIACRITICS,
-  Data,
 } from '../consts/HIRAGANA_DATA';
 import AlphabetSection from '../components/AlphabetSection';
+import {Data} from '../types/characterTypes';
 
 type HiraganaData = {
   title: string;

@@ -1,16 +1,12 @@
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import React, {FC} from 'react';
+import {StyleSheet, View} from 'react-native';
+import React, {FC, useState} from 'react';
 import {kanjiData} from '../consts/kanjiData';
-import {PRIMARY_DARK, WHITE} from '../consts/COLORS';
-import RNVectorIcon from '../components/RNVectorIcon';
+import {WHITE_20} from '../consts/COLORS';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RouteProp} from '@react-navigation/native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import DetailsScreenHeader from '../components/DetailsScreenHeader';
+import DetailsScreenBody from '../components/DetailsScreenBody';
 
 interface Props {
   navigation: NativeStackNavigationProp<any>;
@@ -26,33 +22,53 @@ interface Props {
 
 const DetailsScreen: FC<Props> = ({navigation, route}) => {
   const kanjiId = route.params.id;
-  const singleKanjiData = kanjiData.find(item => {
-    return item.id === kanjiId;
-  });
-  console.log(kanjiId);
-  console.log(singleKanjiData);
+  const initialIndex = kanjiData.findIndex(item => item.id === kanjiId);
+  const [kanjiIndex, setKanjiIndex] = useState(initialIndex);
+  const [isPracticeMode, setIsPracticeMode] = useState(false);
+  const goToPreviousKanji = () => {
+    if (kanjiIndex > 0) {
+      setKanjiIndex(kanjiIndex - 1);
+    }
+  };
+
+  const goToNextKanji = () => {
+    if (kanjiIndex < kanjiData.length - 1) {
+      setKanjiIndex(kanjiIndex + 1);
+    }
+  };
+  const {top} = useSafeAreaInsets();
+  const singleKanjiData = kanjiData[kanjiIndex];
+  const kanjiCharacter = singleKanjiData?.name || 'Kanji not found';
+  const kmeaning = singleKanjiData?.kmeaning || 'Meaning not found';
+  const onyomi = singleKanjiData?.onyomi_ja || 'Onyomi not found';
+  const kunyomi = singleKanjiData?.kunyomi_ja || 'Kunyomi not found';
+
   return (
     <View style={styles.container}>
-      <Pressable
-        style={styles.closeButton}
-        onPress={() => {
-          navigation.goBack();
-        }}>
-        <RNVectorIcon name="left" family="AntDesign" size={40} color={WHITE} />
-      </Pressable>
+      <DetailsScreenHeader
+        navigation={navigation}
+        kanjiCharacter={kanjiCharacter}
+        singleKanjiData={singleKanjiData}
+        topPadding={top + 10}
+        goToNextKanji={goToNextKanji}
+        goToPreviousKanji={goToPreviousKanji}
+        kanjiIndex={kanjiIndex}
+      />
 
-      <TouchableOpacity>
-        <Text style={styles.arrow}>←</Text>
-      </TouchableOpacity>
-      <View style={styles.kanji}>
-        <Text style={styles.kanjiText}>訪</Text>
-      </View>
-      <TouchableOpacity>
-        <Text style={styles.arrow}>→</Text>
-      </TouchableOpacity>
-      <Pressable style={styles.favoriteButton} onPress={() => {}}>
-        <RNVectorIcon name="star" family="Feather" size={40} color={WHITE} />
-      </Pressable>
+      <DetailsScreenBody
+        kmeaning={kmeaning}
+        onyomi={onyomi}
+        kunyomi={kunyomi}
+        examples={
+          JSON.parse(singleKanjiData?.examples)
+          // Array.isArray(singleKanjiData?.examples)
+          //   ? singleKanjiData.examples
+          //   : []
+        }
+        isPracticeMode={isPracticeMode}
+        setIsPracticeMode={setIsPracticeMode}
+        kanjiCharacter={kanjiCharacter}
+      />
     </View>
   );
 };
@@ -61,38 +77,7 @@ export default DetailsScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: PRIMARY_DARK,
-  },
-  closeButton: {
-    position: 'absolute',
-    top: 5,
-    zIndex: 1,
-  },
-  favoriteButton: {
-    position: 'absolute',
-    top: 5,
-    zIndex: 1,
-    right: 10,
-  },
-  arrow: {
-    padding: 10,
-    fontSize: 40,
-    marginVertical: 50,
-    marginHorizontal: 50,
-    color: WHITE,
-  },
-  kanjiText: {
-    fontSize: 80,
-    backgroundColor: WHITE,
-    color: PRIMARY_DARK,
-    fontWeight: '500',
-  },
-  kanji: {
-    borderRadius: 10,
-    padding: 10,
-    backgroundColor: WHITE,
+    flex: 1,
+    backgroundColor: WHITE_20,
   },
 });
