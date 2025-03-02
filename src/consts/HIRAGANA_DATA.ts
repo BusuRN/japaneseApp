@@ -90,7 +90,7 @@ export const HIRAGANA_MONOGRAPHS: Data = [
     },
     {
       letter: 'ち',
-      eng: 'ti',
+      eng: 'chi',
     },
     {
       letter: 'つ',

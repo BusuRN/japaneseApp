@@ -11,6 +11,8 @@ import React, {useState} from 'react';
 import {kanjiData} from '../consts/kanjiData';
 import {ACCENT, BLACK, PRIMARY, WHITE} from '../consts/COLORS';
 import RNVectorIcon from '../components/RNVectorIcon';
+import Logo from '../components/Logo';
+import ErrorPhoto from '../components/ErrorPhoto';
 
 const KanjiScreen = ({navigation}) => {
   // const numColumns = 5;
@@ -21,40 +23,28 @@ const KanjiScreen = ({navigation}) => {
     item.kmeaning.toLowerCase().includes(searchText.toLowerCase()),
   );
 
+  const spaces = 5 - (filteredData.length % 5 || 5);
+  const spacesArray = Array.from(Array(spaces)).map(() => {
+    return null;
+  });
+
+  const filteredDataWithSpaces = [...filteredData, ...spacesArray];
+
   return (
     <View style={styles.container}>
-      <View style={styles.searchContainer}>
-        <TextInput
-          style={styles.searchBar}
-          placeholder="Type here to search"
-          value={searchText}
-          onChangeText={text => {
-            setSearchText(text);
-          }}
-        />
-        <Pressable
-          onPress={() => {
-            setModalVisible(true);
-          }}>
-          <RNVectorIcon
-            name="filter"
-            family="Ionicons"
-            size={40}
-            color={ACCENT}
-          />
-        </Pressable>
-      </View>
       <FlatList
         style={styles.flatList}
         contentContainerStyle={styles.flatContainer}
-        data={filteredData}
+        data={filteredDataWithSpaces}
         renderItem={({item}) => {
+          if (!item) {
+            return <View style={styles.emptyCard} />;
+          }
           return (
             <Pressable
               onPress={() => {
                 console.log(`Test: This Kanji is ${item.name}`);
                 navigation.navigate('Details', {
-                  // name: item.name,
                   id: item.id,
                 });
               }}
@@ -63,10 +53,40 @@ const KanjiScreen = ({navigation}) => {
             </Pressable>
           );
         }}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item?.id}
         numColumns={5}
+        stickyHeaderHiddenOnScroll
+        stickyHeaderIndices={[0]}
+        ListHeaderComponent={
+          <View style={styles.searchContainer}>
+            <TextInput
+              style={styles.searchBar}
+              placeholder="Type here to search"
+              value={searchText}
+              onChangeText={text => {
+                setSearchText(text);
+              }}
+            />
+            {/* <Pressable
+            onPress={() => {
+              setModalVisible(true);
+            }}>
+            <RNVectorIcon
+              name="filter"
+              family="Ionicons"
+              size={40}
+              color={ACCENT}
+            />
+          </Pressable> */}
+          </View>
+        }
+        ListEmptyComponent={
+          <View>
+            <ErrorPhoto />
+          </View>
+        }
       />
-      <Modal
+      {/* <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
@@ -192,7 +212,7 @@ const KanjiScreen = ({navigation}) => {
             </View>
           </View>
         </View>
-      </Modal>
+      </Modal> */}
     </View>
   );
 };
@@ -202,6 +222,7 @@ export default KanjiScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: WHITE,
     // padding: 10,
   },
   searchBar: {
@@ -211,13 +232,17 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingLeft: 15,
     paddingRight: 15,
-    marginHorizontal: 15,
+    // marginLeft: 15,
     flex: 1,
   },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingRight: 15,
+    // paddingRight: 15,
+    // paddingTop: 15,
+    backgroundColor: WHITE,
+    paddingHorizontal: 5,
+    paddingBottom: 5,
     paddingTop: 15,
   },
   rowContainer: {
@@ -231,6 +256,7 @@ const styles = StyleSheet.create({
   },
   flatContainer: {
     padding: 10,
+    paddingTop: 0,
     flexGrow: 1,
   },
   card: {
@@ -242,6 +268,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 8,
   },
+  emptyCard: {
+    flex: 1,
+    margin: 5,
+    aspectRatio: 1,
+  },
+  // rectangularCard: {
+  //   width: 80,
+  //   height: 80,
+  //   backgroundColor: PRIMARY,
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //   borderRadius: 40,
+  //   margin: 5,
+  // },
+
   name: {
     fontSize: 32,
     color: WHITE,
@@ -298,8 +339,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: WHITE,
     fontWeight: '500',
-  },
-  filterContainer: {
-    marginTop: 20,
   },
 });

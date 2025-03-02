@@ -18,8 +18,9 @@ const colors = [
   '#D1494B',
 ];
 
-const DrawScreen = () => {
+const DrawScreen = ({customStyle}) => {
   const [colorMenu, setColorMenu] = useState(false);
+  const [isKanjiVisible, setIsKanjiVisible] = useState(false);
   const [color, setColor] = useState('#000000');
   const [thicknessMenu, setThicknessMenu] = useState(false);
   const [strokeWidth, setStrokeWidth] = useState(1);
@@ -28,7 +29,7 @@ const DrawScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.headerButtons}>
+      <View style={[styles.headerButtons, customStyle]}>
         <Pressable
           style={styles.button}
           onPress={() => {
@@ -199,6 +200,7 @@ const styles = StyleSheet.create({
     backgroundColor: PRIMARY_50,
     borderRadius: 10,
     padding: 5,
+    marginHorizontal: 10,
   },
   colorButton: {
     aspectRatio: 1,

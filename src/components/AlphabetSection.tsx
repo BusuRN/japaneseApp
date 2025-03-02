@@ -40,11 +40,14 @@ const AlphabetSection: FC<Props> = ({title, headerLetters, alphabetData}) => {
               }
               const horizontalIndex = cellIndex - 1;
 
+              const isSpecialCharacter = row.length === 4 && !cellItem.isColumn;
+
               return (
                 <CharacterCard
                   key={cellIndex}
                   letter={cellItem.letter}
                   eng={cellItem.eng}
+                  isSpecialCharacter={isSpecialCharacter}
                   active={activeCard === cellItem.letter}
                   onPress={() => {
                     setActiveCard(cellItem.letter);
