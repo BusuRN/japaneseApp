@@ -23,7 +23,7 @@ const DrawScreen = ({customStyle}) => {
   const [isKanjiVisible, setIsKanjiVisible] = useState(false);
   const [color, setColor] = useState('#000000');
   const [thicknessMenu, setThicknessMenu] = useState(false);
-  const [strokeWidth, setStrokeWidth] = useState(1);
+  const [strokeWidth, setStrokeWidth] = useState(5);
 
   const canvasRef = useRef<SketchCanvas>(null);
 
