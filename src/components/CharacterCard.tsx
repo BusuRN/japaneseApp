@@ -64,9 +64,6 @@ const styles = StyleSheet.create({
     opacity: 0,
   },
   specialCharacter: {
-    aspectRatio: 2,
-    backgroundColor: PRIMARY,
-    borderRadius: 10,
-    paddingHorizontal: 15,
+    aspectRatio: 1.8,
   },
 });
