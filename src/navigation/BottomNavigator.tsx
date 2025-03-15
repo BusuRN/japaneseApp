@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HiraganaScreen from '../screens/HiraganaScreen';
@@ -15,6 +15,11 @@ const BottomNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
+        tabBarStyle: {
+          backgroundColor: ACCENT,
+          height: Platform.OS === 'android' ? 100 : 80,
+          paddingBottom: Platform.OS === 'android' ? 40 : 25,
+        },
         headerShown: false,
         tabBarBackground: () => {
           return <View style={styles.bottomBar} />;
@@ -113,11 +118,6 @@ const BottomNavigator = () => {
 export default BottomNavigator;
 
 const styles = StyleSheet.create({
-  bottomBar: {
-    backgroundColor: ACCENT,
-    width: '100%',
-    height: 110,
-  },
   bottomText: {
     fontSize: 30,
     color: WHITE_50,
