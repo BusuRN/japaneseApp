@@ -1,79 +1,101 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🇯🇵 Japanese Learning App (React Native)
 
-# Getting Started
+A mobile app for learning Japanese writing systems: **Hiragana**, **Katakana**, and **Kanji**.  
+Includes interactive charts, pronunciation info, and a custom practice canvas.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## 📘 Overview
 
-## Step 1: Start the Metro Server
+This app is built for beginners who want to learn Japanese through visual interaction and hands-on practice.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+Users can:
+- Explore full Hiragana and Katakana character charts
+- Tap characters to view pronunciation and English meaning
+- Learn Kanji with meaning, examples, and pronunciation types (onyomi/kunyomi)
+- Practice writing characters using a drawing canvas
+- Navigate smoothly using a bottom tab bar
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## ✨ Features
+
+- Full Hiragana and Katakana charts with tap-to-view details
+- Detailed Kanji screen: meaning, onyomi, kunyomi, examples
+- Practice mode to draw Kanji strokes
+- Bottom tab navigation between sections
+- Search Kanji by meaning
+- Fully offline — uses static data files
+
+## 🈶 What You Learn
+
+The app teaches the three Japanese writing systems:
+
+- **Hiragana (ひらがな)** – used for native Japanese words and grammar
+- **Katakana (カタカナ)** – used for foreign words, names, and emphasis
+- **Kanji (漢字)** – Chinese-origin characters used for meaning and structure
+
+Each Kanji includes:
+- Meaning
+- Onyomi (Chinese-style reading)
+- Kunyomi (Japanese-style reading)
+- Stroke count
+- Examples of how it’s used
+
+Plus, users can practice writing Kanji on a built-in drawing canvas.
+
+## 📸 Screenshots
+
+<div align="center">
+  <img src="./screenshots/canvas.png" width="200"/>
+  <img src="./screenshots/hiragana.png" width="200"/>
+  <img src="./screenshots/kanji.png" width="200"/>
+  <img src="./screenshots/kanjiInfo.png" width="200"/>
+  <img src="./screenshots/katakana.png" width="200"/>
+</div>
+
+> **Includes** interactive charts, detailed character cards, and practice mode.
+
+
+## 🚀 Getting Started
+
+> Before you begin, make sure your environment is set up for React Native:  
+👉 [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup)
+
+---
+
+### 📦 Install dependencies
 
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
+yarn install
 yarn start
-```
+yarn android or yarn ios 
 
-## Step 2: Start your Application
+## 🧰 Tech Stack
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+- **React Native** `0.74.1`
+- **TypeScript** `5.0.4`
+- **React Navigation** – screen navigation
+- **@terrylinla/react-native-sketch-canvas** – drawing functionality
+- **React Native Vector Icons** – for iconography
+- **Async Storage** – for persistent local data
 
-### For Android
+## 📌 Future Improvements
 
-```bash
-# using npm
-npm run android
+- Add stroke-order animations for Kanji
+- Add audio pronunciation for characters
+- Add a quiz or test mode for self-assessment
+- Allow users to favorite and save characters
+- Track progress (completed characters, stats)
+- Theme customization (dark/light mode)
 
-# OR using Yarn
-yarn android
-```
 
-### For iOS
+## 👤 Author
 
-```bash
-# using npm
-npm run ios
+Made by **Andrei** — Junior React Native Developer passionate about clean UI, educational tools, and leveling up fast.
 
-# OR using Yarn
-yarn ios
-```
+---
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## ✉️ Contact
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+Feel free to reach out:
 
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- GitHub: (https://github.com/BusuRN)
+- LinkedIn: (https://www.linkedin.com/in/andrei-busuioc-b692b02aa/)
+- Email: andreialexandrubusuioc@outlook.com
