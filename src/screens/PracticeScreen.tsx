@@ -1,7 +1,7 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-const PracticeScreen = ({navigation}) => {
+const PracticeScreen = ({ navigation }) => {
   return (
     <View>
       <Pressable
