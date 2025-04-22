@@ -86,6 +86,7 @@ yarn android or yarn ios
 - Theme customization (dark/light mode)
 
 
+
 ## 👤 Author
 
 Made by **Andrei** — Junior React Native Developer passionate about clean UI, educational tools, and leveling up fast.
