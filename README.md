@@ -86,6 +86,7 @@ yarn android or yarn ios
 
 
 
+
 ## 🚀 Author
 
 Made by **Andrei** — Junior React Native Developer passionate about clean UI, educational tools, and leveling up fast.
