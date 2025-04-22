@@ -50,22 +50,21 @@ Plus, users can practice writing Kanji on a built-in drawing canvas.
   <img src="./screenshots/katakana.png" width="200"/>
 </div>
 
-> **Includes** interactive charts, detailed character cards, and practice mode.
 
-
-## 🚀 Getting Started
+## 🚀 Running the Project
 
 > Before you begin, make sure your environment is set up for React Native:  
 👉 [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup)
 
----
 
-### 📦 Install dependencies
+To get started, follow these steps:
+
+### 📦 Install Dependencies
 
 ```bash
 yarn install
 yarn start
-yarn android or yarn ios 
+yarn android or yarn ios
 
 ## 🧰 Tech Stack
 
@@ -86,7 +85,8 @@ yarn android or yarn ios
 - Theme customization (dark/light mode)
 
 
-## 👤 Author
+
+## 🚀 Author
 
 Made by **Andrei** — Junior React Native Developer passionate about clean UI, educational tools, and leveling up fast.
 
