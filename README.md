@@ -51,6 +51,13 @@ Plus, users can practice writing Kanji on a built-in drawing canvas.
 </div>
 
 
+
+### 📦 Install Dependencies
+
+```bash
+yarn install
+```
+
 ## 🚀 Running the Project
 
 > Before you begin, make sure your environment is set up for React Native:  
@@ -58,13 +65,10 @@ Plus, users can practice writing Kanji on a built-in drawing canvas.
 
 
 To get started, follow these steps:
-
-### 📦 Install Dependencies
-
 ```bash
-yarn install
 yarn start
 yarn android or yarn ios
+```
 
 ## 🧰 Tech Stack
 
@@ -85,12 +89,10 @@ yarn android or yarn ios
 - Theme customization (dark/light mode)
 
 
-
 ## 👤 Author
 
 Made by **Andrei** — Junior React Native Developer passionate about clean UI, educational tools, and leveling up fast.
 
----
 
 ## ✉️ Contact
 
