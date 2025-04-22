@@ -1,4 +1,4 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {Platform, Pressable, StyleSheet, Text, View} from 'react-native';
 import React, {useState, useRef} from 'react';
 import Slider from '@react-native-community/slider';
 import {SketchCanvas} from '@terrylinla/react-native-sketch-canvas';
@@ -153,6 +153,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 5,
+    ...Platform.select({
+      android: {
+        marginBottom: 35,
+      },
+    }),
   },
   button: {
     alignItems: 'center',
