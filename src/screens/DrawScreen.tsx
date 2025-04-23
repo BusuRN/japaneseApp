@@ -1,8 +1,8 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
-import React, {useState, useRef} from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import React, { useState, useRef } from 'react';
 import Slider from '@react-native-community/slider';
-import {SketchCanvas} from '@terrylinla/react-native-sketch-canvas';
-import {PRIMARY, PRIMARY_50, PRIMARY_DARK, WHITE} from '../consts/COLORS';
+import { SketchCanvas } from '@terrylinla/react-native-sketch-canvas';
+import { PRIMARY, PRIMARY_50, PRIMARY_DARK, WHITE } from '../consts/COLORS';
 import RNVectorIcon from '../components/RNVectorIcon';
 
 const colors = [
@@ -18,7 +18,7 @@ const colors = [
   '#D1494B',
 ];
 
-const DrawScreen = ({customStyle}) => {
+const DrawScreen = ({ customStyle }) => {
   const [colorMenu, setColorMenu] = useState(false);
   const [isKanjiVisible, setIsKanjiVisible] = useState(false);
   const [color, setColor] = useState('#000000');
@@ -35,14 +35,14 @@ const DrawScreen = ({customStyle}) => {
           onPress={() => {
             setColorMenu(!colorMenu);
           }}
-          // onPress={colorVisibility}
-          // onPress={() => {
-          //   if (colorMenu === true) {
-          //     setColorMenu(false);
-          //   } else {
-          //     setColorMenu(true);
-          //   }
-          // }}
+        // onPress={colorVisibility}
+        // onPress={() => {
+        //   if (colorMenu === true) {
+        //     setColorMenu(false);
+        //   } else {
+        //     setColorMenu(true);
+        //   }
+        // }}
         >
           <RNVectorIcon
             name="format-color-fill"
@@ -105,7 +105,7 @@ const DrawScreen = ({customStyle}) => {
                 key={item}
                 style={[
                   styles.colorButton,
-                  {backgroundColor: item},
+                  { backgroundColor: item },
                   item === color && styles.selectedColor,
                 ]}
                 onPress={() => {
@@ -131,7 +131,7 @@ const DrawScreen = ({customStyle}) => {
             <Text style={styles.thickValue}>1</Text>
             <View style={styles.verticalLine} />
             <Slider
-              style={{width: '100%', height: 40, flex: 1}}
+              style={{ width: '100%', height: 40, flex: 1 }}
               minimumValue={1}
               maximumValue={10}
               minimumTrackTintColor={PRIMARY_DARK}

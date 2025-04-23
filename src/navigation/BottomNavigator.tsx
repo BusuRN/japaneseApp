@@ -1,10 +1,10 @@
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HiraganaScreen from '../screens/HiraganaScreen';
 import KatakanaScreen from '../screens/KatakanaScreen';
 import RNVectorIcon from '../components/RNVectorIcon';
-import {ACCENT, WHITE, WHITE_50} from '../consts/COLORS';
+import { ACCENT, WHITE, WHITE_50 } from '../consts/COLORS';
 import PracticeScreen from '../screens/PracticeScreen';
 import DrawScreen from '../screens/DrawScreen';
 import KanjiScreen from '../screens/KanjiScreen';
@@ -17,8 +17,8 @@ const BottomNavigator = () => {
       screenOptions={{
         tabBarStyle: {
           backgroundColor: ACCENT,
-          height: Platform.OS === 'android' ? 100 : 80,
-          paddingBottom: Platform.OS === 'android' ? 40 : 25,
+          height: Platform.OS === 'android' ? 120 : 80,
+          paddingBottom: Platform.OS === 'android' ? 60 : 25,
         },
         headerShown: false,
         tabBarBackground: () => {
@@ -31,7 +31,7 @@ const BottomNavigator = () => {
         name="Hiragana"
         component={HiraganaScreen}
         options={{
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             return (
               <Text
                 style={[
@@ -48,7 +48,7 @@ const BottomNavigator = () => {
         name="Katakana"
         component={KatakanaScreen}
         options={{
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             return (
               <Text
                 style={[
@@ -65,7 +65,7 @@ const BottomNavigator = () => {
         name="Kanji"
         component={KanjiScreen}
         options={{
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             return (
               <Text
                 style={[
@@ -82,7 +82,7 @@ const BottomNavigator = () => {
         name="Draw"
         component={DrawScreen}
         options={{
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             return (
               <RNVectorIcon
                 name={'brush'}
