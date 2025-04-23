@@ -43,7 +43,6 @@ Plus, users can practice writing Kanji on a built-in drawing canvas.
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="./screenshots/canvas.png" width="200"/>
   <img src="./screenshots/hiragana.png" width="200"/>
   <img src="./screenshots/kanji.png" width="200"/>
   <img src="./screenshots/kanjiInfo.png" width="200"/>
@@ -52,7 +51,6 @@ Plus, users can practice writing Kanji on a built-in drawing canvas.
   <img src="./screenshots/canvasThick.png" width="200"/>
   <img src="./screenshots/practiceD.png" width="200"/>
   <img src="./screenshots/practiceG.png" width="200"/>
-  <img src="./screenshots/katakana.png" width="200"/>
 </div>
 
 
